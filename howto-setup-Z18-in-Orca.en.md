@@ -112,5 +112,29 @@ Chamber heating is not controlled here; if you want it, set it on the Z18 panel.
 
 Click Save to store the new printer.
 
-; G1 X40 Y10 Z0.30 F9000
-; G1 X260 Y10 E8.0 F900
+**4) Import the Z18 bundle and finalize settings**
+
+In Orca, go to File → Import Configs… and select Orca_Z18_MasterBundle.zip.
+Orca will import printer/process/material presets.
+
+Open your Z18 printer profile and adjust:
+
+Bed center: change X = 152.0 → 152.5 mm, Y = 152.0 → 152.5 mm.
+
+Bed model: if necessary, re-load print_bed_makerbot_replicator_z18.stl.
+
+Custom G-code: ensure the Start/End blocks above match your extruder.
+
+Post-processing: add the Python script call
+
+Linux
+python3 "/home/<USER>/Makerbot_files/Orca_Slicer/Orca_gcode_2_Makerbot_Z18.py" "[output_filepath]"
+
+Windows
+python "C:\Users\<USER>\Makerbot_files\Orca_Slicer\Orca_gcode_2_Makerbot_Z18.py" "[output_filepath]"
+
+Save the printer/preset.
+
+Slice any model and export G-code → the script will output a .makerbot file next to it.
+
+Tip: If you want a preview in Digital Factory and it still says “model is too large”, reduce non-surface complexity via environment variables (see project docs). Printing without preview works.
