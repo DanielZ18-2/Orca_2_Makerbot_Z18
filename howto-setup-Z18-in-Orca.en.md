@@ -57,7 +57,7 @@ In Orca: **Printer Settings → Machine → Add new printer** and fill in:
 > Choose the block that matches your extruder.  
 > These sequences keep things simple for the Z18: absolute units, home, safe Z, and no bed heat.
 
-**Smart Extruder+** (tool tag `mk13`)
+**Smart Extruder+** (tool tag `mk13´)
 ```gcode
 ; makerbot_tool_type = mk13
 G21                      ; metric
@@ -82,8 +82,18 @@ G92 E0
 G1 Z35 F9000
 G1 X152.5 Y152.5 F15000
 ; Optional prime line (disabled by default)
+; makerbot_tool_type = mk13_impla
+G21
+G90
+M82
+M107
+G28 X0 Y0 Z0
+G92 E0
+G1 Z35 F9000
+G1 X152.5 Y152.5 F15000
+; Optional prime line (disabled by default)
 
-**LABS Extruder** (tool tag mk13_experimental)
+**LABS Extruder** (tool tag `mk13_experimental´)
 ```gcode
 ; makerbot_tool_type = mk13_experimental
 G21
@@ -108,11 +118,12 @@ G92 E0
 G1 E-2 F1800             ; small retract
 M84                      ; motors off
 
+
 Chamber heating is not controlled here; if you want it, set it on the Z18 panel.
 
 Click Save to store the new printer.
 
-**4) Import the Z18 bundle and finalize settings**
+### 4) Import the Z18 bundle and finalize settings
 
 In Orca, go to File → Import Configs… and select Orca_Z18_MasterBundle.zip.
 Orca will import printer/process/material presets.
