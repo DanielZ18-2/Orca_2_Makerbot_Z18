@@ -1,5 +1,5 @@
 
-README (macOS) — docs/mac-install.en.md
+README (macOS) — docs/setup-guide-mac.en.md
 # macOS Install & Configuration — Orca_2_Makerbot_Z18 (v11.5a)
 
 This guide covers:
